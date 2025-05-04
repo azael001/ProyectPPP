@@ -8,6 +8,9 @@ from email.mime.text import MIMEText
 from functools import partial
 from pygments.cmdline import main_inner
 from pygments.lexer import default
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email import encoders
 
 
 
@@ -335,11 +338,6 @@ def main(page: ft.Page):
                 msg["Subject"] = asunto
                 msg["From"] = "djrop.net@gmail.com"
                 msg["To"] = destinatario
-
-                from email.mime.multipart import MIMEMultipart
-                from email.mime.base import MIMEBase
-                from email import encoders
-
                 mensaje = MIMEMultipart()
                 mensaje["From"] = msg["From"]
                 mensaje["To"] = msg["To"]
